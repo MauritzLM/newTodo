@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <title>Todo app</title>
+</head>
+
+<body>
+    <h1>Todo</h1>
+    <div class="container">
+        <aside>
+            <h2>Projects</h2>
+            <!--  projects container  -->
+            <div class="projects">
+
+            </div>
+
+            <!--  new project button  -->
+            <button class="project-btn">New project</button>
+        </aside>
+        <!--  section to view selected list  -->
+        <section>
+            <!--  project name  -->
+            <h2 class="current-list">today</h2>
+
+            <!--  project id  -->
+            <p class="project-id"></p>
+
+            <!--  project items  -->
+            <ol class="project-list"></ol>
+
+            <!--  new list item  -->
+            <button class="new-item">new item</button>
+        </section>
+
+    </div>
+
+    <!--  Add new project form  -->
+    <form action="" class="project-form">
+        <fieldset>
+            <legend>New project</legend>
+
+            <label for="name">name</label>
+            <input type="text" name="name" class="project-input" required>
+
+            <button type="submit">Add new project</button>
+        </fieldset>
+    </form>
+
+    <!--  Add new item form  -->
+    <form action="" class="item-form">
+        <fieldset>
+            <legend>New item</legend>
+
+            <label for="name">name</label>
+            <input type="text" name="name" class="item-name" required>
+
+
+
+            <label for="description">description</label>
+
+            <textarea name="description" id="description" class="item-description" cols="20" rows="2"></textarea>
+
+
+
+
+            <label for="date">complete by</label>
+            <input type="date" name="date" class="item-date" required>
+
+
+            <label for="priority">priority</label>
+            <select name="priority-select" id="priority" required>
+                <option value="">--choose priority--</option>
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+            </select>
+
+            <button type="submit">add item</button>
+        </fieldset>
+    </form>
+
+    <!--  Edit item form  -->
+    <form action="" class="edit-item-form">
+        <fieldset>
+            <legend>Edit item</legend>
+
+            <label for="edit-name">name</label>
+            <input type="text" name="edit-name" class="edit-name">
+
+
+
+            <label for="edit-description">description</label>
+
+            <textarea name="edit-description" id="edit-description" class="edit-description" cols="20"
+                rows="2"></textarea>
+
+
+            <label for="edit-date">date</label>
+            <input type="date" name="edit-date" class="edit-date">
+
+
+            <label for="priority">priority</label>
+            <select name="edit-priority" class="edit-priority">
+                <option value="">--choose priority--</option>
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+            </select>
+
+            <input type="hidden" name="id" class="edit-id" value="">
+
+            <button type="submit">update item</button>
+        </fieldset>
+    </form>
+
+</body>
+
+</html>
