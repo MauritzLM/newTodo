@@ -7,7 +7,7 @@ const projectInput = document.querySelector('.project-input');
 const projectsContainer = document.querySelector('.projects');
 const projectList = document.querySelector('.project-list');
 
-const newItemBtn = document.querySelector('.new-item');
+const newItemBtn = document.querySelector('.new-item-btn');
 const newItemForm = document.querySelector('.item-form');
 
 const editForm = document.querySelector('.edit-item-form');
@@ -27,14 +27,16 @@ const editId = document.querySelector('.edit-id');
 
 const projectsArray = [];
 
-// bring up form for new project
+// bring up form for new project *
 newProjectBtn.addEventListener('click', (e) => {
     console.log(e);
+    document.querySelector('.project-form-container').classList.toggle('hidden');
 });
 
-// bring up form for new item
+// bring up form for new item *
 newItemBtn.addEventListener('click', (e) => {
     console.log(e);
+    document.querySelector('.item-form-container').classList.toggle('hidden');
 })
 
 
@@ -64,6 +66,9 @@ newProjectForm.addEventListener('submit', (e) => {
     // select the created project
     projectsContainer.lastChild.classList.add('selected');
 
+    // hide form when done
+    document.querySelector('.project-form-container').classList.toggle('hidden');
+
 })
 
 // submit new item
@@ -89,22 +94,24 @@ newItemForm.addEventListener('submit', (e) => {
                 let editBtn = document.createElement('button');
                 let liRemoveBtn = document.createElement('button');
 
+
                 li.textContent = `${itemsArray[j].name}`;
                 editBtn.textContent = 'edit';
                 editBtn.classList.add(`${j}`);
-                liRemoveBtn.textContent = 'X';
+                liRemoveBtn.textContent = 'delete item';
 
                 // create div to contain item description and date 
                 let infoContainer = document.createElement('div');
                 let descriptionInfo = document.createElement('p');
                 let dateInfo = document.createElement('p')
 
+                infoContainer.classList.add('hidden', 'info-container');
                 descriptionInfo.textContent = `${itemsArray[j].description}`;
                 dateInfo.textContent = `${itemsArray[j].date}`;
 
                 infoContainer.append(descriptionInfo, dateInfo);
 
-                listItemDiv.append(li, editBtn, infoContainer, liRemoveBtn);
+                listItemDiv.append(li, infoContainer, editBtn, liRemoveBtn);
                 listItemDiv.classList.add('list-item-div');
                 li.classList.add('list-item');
                 projectList.appendChild(listItemDiv);
@@ -113,15 +120,20 @@ newItemForm.addEventListener('submit', (e) => {
 
                 // add event to expand item information* (maybe toggle a css class on click)
 
+                li.addEventListener('click', () => {
+                    infoContainer.classList.toggle('hidden');
+                })
+
                 editBtn.addEventListener('click', (e) => {
                     // bring up edit form
-
+                    document.querySelector('.edit-form-container').classList.toggle('hidden');
                     // fill in values of form
                     editName.value = itemsArray[j].name;
                     editDescription.value = itemsArray[j].description;
                     editDate.value = itemsArray[j].date;
                     editPriority.value = itemsArray[j].priority;
                     editId.value = j;
+
 
                     console.log(editId.value);
                 })
@@ -137,6 +149,8 @@ newItemForm.addEventListener('submit', (e) => {
             }
         }
     }
+    // hide form when done
+    document.querySelector('.item-form-container').classList.toggle('hidden');
     itemName.value = '';
     itemDescription.value = '';
 })
@@ -162,6 +176,9 @@ editForm.addEventListener('submit', (e) => {
     editId.value = '';
     editName.value = '';
     editDescription.value = '';
+
+    // hide form again
+    document.querySelector('.edit-form-container').classList.toggle('hidden');
 
     // populateList
     populateList(currentProjectId);
@@ -204,6 +221,7 @@ function appendProjects() {
         pTitle.textContent = `${projectsArray[i].name}`;
         pID.textContent = `${projectsArray[i].id}`;
 
+        pID.classList.add('hidden');
         div.classList.add('project-select');
 
         div.appendChild(pTitle);
@@ -213,7 +231,7 @@ function appendProjects() {
         // add remove button for project except the default project
         if (i !== 0) {
             let removeBtn = document.createElement('button');
-            removeBtn.textContent = 'X';
+            removeBtn.textContent = 'delete list';
             div.appendChild(removeBtn);
 
             // add click event to btn to remove project
@@ -279,29 +297,36 @@ function populateList(id) {
                 let editBtn = document.createElement('button');
                 let liRemoveBtn = document.createElement('button');
 
+
                 li.textContent = `${itemsArray[j].name}`;
                 editBtn.textContent = 'edit';
                 editBtn.classList.add(`${j}`);
-                liRemoveBtn.textContent = 'X';
+                liRemoveBtn.textContent = 'delete item';
 
                 // create div to contain item description and date 
                 let infoContainer = document.createElement('div');
                 let descriptionInfo = document.createElement('p');
                 let dateInfo = document.createElement('p')
 
+                infoContainer.classList.add('hidden', 'info-container');
                 descriptionInfo.textContent = `${itemsArray[j].description}`;
                 dateInfo.textContent = `${itemsArray[j].date}`;
 
                 infoContainer.append(descriptionInfo, dateInfo);
 
-                listItemDiv.append(li, editBtn, infoContainer, liRemoveBtn)
+                listItemDiv.append(li, infoContainer, editBtn, liRemoveBtn)
                 listItemDiv.classList.add('list-item-div');
                 li.classList.add('list-item');
                 projectList.appendChild(listItemDiv);
 
+                // add event to toggle info
+                li.addEventListener('click', () => {
+                    infoContainer.classList.toggle('hidden');
+                })
+
                 editBtn.addEventListener('click', () => {
                     // bring up edit form
-
+                    document.querySelector('.edit-form-container').classList.toggle('hidden');
                     // fill in values of form
                     editName.value = itemsArray[j].name;
                     editDescription.value = itemsArray[j].description;

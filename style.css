@@ -7,23 +7,25 @@
 body {
     font-family: 'Times New Roman', Times, serif;
     width: 90%;
+    background-color: rgba(215, 220, 224, 0.459);
 }
 
 .container {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 10px;
 
 }
 
 .container aside {
-    border-right: 1px solid rgb(197, 188, 188);
-    padding-right: 5px;
+    border-right: 2px solid rgba(141, 136, 136, 0.486);
+    padding: 5px;
+    grid-column: 1;
 }
 
 .container section {
-    flex-grow: 2;
-    padding-left: 5px;
+    padding: 5px;
+    grid-column: 2;
 }
 
 .project-select {
@@ -32,8 +34,8 @@ body {
 }
 
 .selected {
-    background-color: rgb(56, 56, 56);
-    color: aliceblue;
+    background-color: rgba(141, 136, 136, 0.658);
+    color: rgb(249, 251, 252);
 }
 
 .project-form {
@@ -52,50 +54,99 @@ body {
     width: 1em;
 }
 
+/*  ----- List -----  */
+
+ol {
+    margin-top: 0;
+}
+
 .list-item-div {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    margin-top: 10px;
 }
 
 .list-item {
     color: rgb(83, 79, 79);
     font-size: 1.2rem;
     padding: 2px;
-}
-
-.list-item:hover {
     cursor: pointer;
 }
 
-button:hover {
-    cursor: pointer;
+.info-container {
+    padding: 5px;
 }
+
+.hidden {
+    display: none;
+    position: absolute;
+}
+
 
 .project-select p:first-child:hover {
     cursor: pointer;
 }
 
-.project-id {
-    color: white;
-    margin: 0;
+/* -----  Buttons ----- */
+
+button {
+    cursor: pointer;
 }
+
+.new-item-btn {
+    position: relative;
+    border-radius: 50%;
+    bottom: 15px;
+    left: 200px;
+    background-color: rgba(11, 139, 118, 0.781);
+    color: rgb(242, 248, 248);
+    border: none;
+    font-size: 1.2rem;
+}
+
+.project-btn {
+    border: none;
+    width: 100%;
+    background-color: rgba(11, 139, 118, 0.781);
+    color: rgb(234, 247, 247);
+    padding: 6px;
+    margin-top: 10px;
+}
+
+.new-item-btn:hover {
+    background-color: rgba(5, 68, 58, 0.781);
+}
+
+.project-btn:hover {
+    background-color: rgba(5, 68, 58, 0.781);
+}
+
 
 /* -----  Form Styling  -----  */
 
-input,
-textarea,
-select {
-    width: 150px;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+form {
+    max-width: 400px;
+}
+
+/* .project-form-container,
+.item-form-container,
+.edit-form-container {
+    display: none;
+} */
+
+form button,
+form label {
+    display: block;
+}
+
+form label {
+    margin-bottom: 8px;
 }
 
 
-/*
-class to toggle for expanded view for list items
-.list-item-expanded {
-     
+form input[type="text"],
+form input[type="date"],
+form textarea,
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
 }
-*/
