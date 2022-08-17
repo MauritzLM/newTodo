@@ -91,14 +91,24 @@ newItemForm.addEventListener('submit', (e) => {
             for (let j = 0; j < itemsArray.length; j++) {
                 let listItemDiv = document.createElement('div')
                 let li = document.createElement('li');
+                let buttonDiv = document.createElement('div');
                 let editBtn = document.createElement('button');
+                let editIcon = document.createElement('i');
                 let liRemoveBtn = document.createElement('button');
+                let removeIcon = document.createElement('i');
 
 
+                // edit and remove button container
                 li.textContent = `${itemsArray[j].name}`;
-                editBtn.textContent = 'edit';
-                editBtn.classList.add(`${j}`);
-                liRemoveBtn.textContent = 'delete item';
+                editIcon.classList.add('material-icons');
+                editIcon.textContent = 'edit';
+                editBtn.classList.add(`edit-item-btn`);
+                editBtn.appendChild(editIcon);
+
+                removeIcon.classList.add('material-icons');
+                removeIcon.textContent = 'delete';
+                liRemoveBtn.classList.add('remove-btn');
+                liRemoveBtn.appendChild(removeIcon);
 
                 // create div to contain item description and date 
                 let infoContainer = document.createElement('div');
@@ -106,12 +116,14 @@ newItemForm.addEventListener('submit', (e) => {
                 let dateInfo = document.createElement('p')
 
                 infoContainer.classList.add('hidden', 'info-container');
-                descriptionInfo.textContent = `${itemsArray[j].description}`;
-                dateInfo.textContent = `${itemsArray[j].date}`;
+                descriptionInfo.textContent = `Note: ${itemsArray[j].description}`;
+                dateInfo.textContent = `Date: ${itemsArray[j].date}`;
 
+                buttonDiv.classList.add('li-btn-container');
+                buttonDiv.append(editBtn, liRemoveBtn);
                 infoContainer.append(descriptionInfo, dateInfo);
 
-                listItemDiv.append(li, infoContainer, editBtn, liRemoveBtn);
+                listItemDiv.append(li, infoContainer, buttonDiv);
                 listItemDiv.classList.add('list-item-div');
                 li.classList.add('list-item');
                 projectList.appendChild(listItemDiv);
@@ -231,7 +243,11 @@ function appendProjects() {
         // add remove button for project except the default project
         if (i !== 0) {
             let removeBtn = document.createElement('button');
-            removeBtn.textContent = 'delete list';
+            let removeIcon = document.createElement('i');
+            removeIcon.classList.add('material-icons')
+            removeIcon.textContent = 'delete';
+            removeBtn.classList.add('remove-btn');
+            removeBtn.appendChild(removeIcon);
             div.appendChild(removeBtn);
 
             // add click event to btn to remove project
@@ -294,14 +310,26 @@ function populateList(id) {
             for (let j = 0; j < itemsArray.length; j++) {
                 let listItemDiv = document.createElement('div')
                 let li = document.createElement('li');
+                let buttonDiv = document.createElement('div');
                 let editBtn = document.createElement('button');
+                let editIcon = document.createElement('i');
                 let liRemoveBtn = document.createElement('button');
+                let removeIcon = document.createElement('i');
+
 
 
                 li.textContent = `${itemsArray[j].name}`;
-                editBtn.textContent = 'edit';
-                editBtn.classList.add(`${j}`);
-                liRemoveBtn.textContent = 'delete item';
+
+                // edit and remove button container
+                editIcon.classList.add('material-icons');
+                editIcon.textContent = 'edit';
+                editBtn.classList.add(`edit-item-btn`);
+                editBtn.appendChild(editIcon);
+
+                removeIcon.classList.add('material-icons');
+                removeIcon.textContent = 'delete';
+                liRemoveBtn.classList.add('remove-btn');
+                liRemoveBtn.appendChild(removeIcon);
 
                 // create div to contain item description and date 
                 let infoContainer = document.createElement('div');
@@ -309,12 +337,14 @@ function populateList(id) {
                 let dateInfo = document.createElement('p')
 
                 infoContainer.classList.add('hidden', 'info-container');
-                descriptionInfo.textContent = `${itemsArray[j].description}`;
-                dateInfo.textContent = `${itemsArray[j].date}`;
+                descriptionInfo.textContent = `Note: ${itemsArray[j].description}`;
+                dateInfo.textContent = `Date: ${itemsArray[j].date}`;
 
+                buttonDiv.classList.add('li-btn-container');
+                buttonDiv.append(editBtn, liRemoveBtn);
                 infoContainer.append(descriptionInfo, dateInfo);
 
-                listItemDiv.append(li, infoContainer, editBtn, liRemoveBtn)
+                listItemDiv.append(li, infoContainer, buttonDiv);
                 listItemDiv.classList.add('list-item-div');
                 li.classList.add('list-item');
                 projectList.appendChild(listItemDiv);
