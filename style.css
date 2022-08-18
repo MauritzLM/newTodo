@@ -17,6 +17,15 @@
 
 }
 
+@font-face {
+    font-family: 'poppinsmedium';
+    src: url('poppins-medium-webfont.woff2') format('woff2'),
+        url('poppins-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 *,
 *:before,
 *:after {
@@ -29,8 +38,9 @@ html {
 
 body {
     font-family: 'latoregular', Times, serif;
-    width: 90%;
+    /* width: 90%; */
     background-color: rgba(215, 220, 224, 0.459);
+    margin: 0;
 
 }
 
@@ -38,7 +48,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 3fr;
     grid-gap: 10px;
-    border-top: 2px solid rgba(173, 168, 168, 0.425);
+    /* border-top: 2px solid rgba(173, 168, 168, 0.425); */
 
 }
 
@@ -53,18 +63,30 @@ body {
     grid-column: 2;
 }
 
+.new-item-btn-div {
+    display: flex;
+    justify-content: flex-end;
+}
+
 /* -----  Typography  ----- */
 
 h1 {
     font-size: 5rem;
-    color: rgb(54, 53, 53);
+    background-color: rgb(54, 53, 53);
+    color: rgb(239, 245, 245);
     letter-spacing: 1px;
+    margin: 0;
+    padding-left: 10px;
 }
 
 h2 {
     font-size: 3rem;
     color: rgb(54, 53, 53);
     letter-spacing: .8px;
+}
+
+.current-list {
+    text-align: center;
 }
 
 p {
@@ -78,6 +100,11 @@ li {
     font-size: 1.9rem;
     font-weight: bold;
     letter-spacing: .6px;
+}
+
+.info-container p {
+    font-family: 'poppinsmedium';
+    font-style: italic;
 }
 
 label {
@@ -105,8 +132,11 @@ legend {
 .project-select {
     font-weight: bold;
     border-bottom: 1px solid rgba(165, 160, 160, 0.445);
+    display: flex;
+    justify-content: space-between;
     /* border-radius: 2px; */
 }
+
 
 .selected {
     color: rgb(126, 127, 128);
@@ -147,13 +177,16 @@ ol {
 
 .info-container {
     padding: 5px;
+    color: rgb(126, 127, 128);
+    box-shadow: 3px 2px 2px 2px rgba(165, 160, 160, 0.753);
+    margin-top: 10px;
+    width: 90%;
 }
 
 .hidden {
     display: none;
     position: absolute;
 }
-
 
 .project-select p:first-child:hover {
     cursor: pointer;
@@ -162,6 +195,8 @@ ol {
 .li-btn-container {
     display: flex;
     justify-content: flex-end;
+    padding-right: 10px;
+    margin-top: 10px;
 
 }
 
@@ -173,12 +208,10 @@ button {
 }
 
 .new-item-btn {
-    position: relative;
     border-radius: 10%;
-    bottom: 15px;
-    left: 185px;
     color: rgb(42, 141, 108);
     border: none;
+
 }
 
 .project-btn {
@@ -192,18 +225,23 @@ button {
 
 .edit-item-btn {
     border: none;
+    color: rgb(83, 79, 79);
+
 }
 
 .remove-btn {
     border: none;
+    color: rgb(83, 79, 79);
 }
 
 .edit-item-btn:hover {
     background-color: rgb(205, 212, 210);
+    color: rgb(31, 98, 187);
 }
 
 .remove-btn:hover {
     background-color: rgb(205, 212, 210);
+    color: rgb(138, 39, 39);
 }
 
 .new-item-btn:hover {
@@ -213,6 +251,14 @@ button {
 
 .project-btn:hover {
     background-color: rgba(31, 160, 138, 0.781);
+}
+
+.project-select p:hover {
+    color: rgb(126, 127, 128);
+}
+
+.list-item:hover {
+    color: rgb(126, 127, 128);
 }
 
 

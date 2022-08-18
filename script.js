@@ -30,6 +30,7 @@ const projectsArray = [];
 // bring up form for new project *
 newProjectBtn.addEventListener('click', (e) => {
     console.log(e);
+    newProjectForm.focus();
     document.querySelector('.project-form-container').classList.toggle('hidden');
 });
 
@@ -98,13 +99,14 @@ newItemForm.addEventListener('submit', (e) => {
                 let removeIcon = document.createElement('i');
 
 
-                // edit and remove button container
+                // edit item button 
                 li.textContent = `${itemsArray[j].name}`;
                 editIcon.classList.add('material-icons');
                 editIcon.textContent = 'edit';
                 editBtn.classList.add(`edit-item-btn`);
                 editBtn.appendChild(editIcon);
 
+                // remove item button
                 removeIcon.classList.add('material-icons');
                 removeIcon.textContent = 'delete';
                 liRemoveBtn.classList.add('remove-btn');
