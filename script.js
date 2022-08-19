@@ -246,7 +246,7 @@ function appendProjects() {
         if (i !== 0) {
             let removeBtn = document.createElement('button');
             let removeIcon = document.createElement('i');
-            removeIcon.classList.add('material-icons')
+            removeIcon.classList.add('material-icons');
             removeIcon.textContent = 'delete';
             removeBtn.classList.add('remove-btn');
             removeBtn.appendChild(removeIcon);

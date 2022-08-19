@@ -19,8 +19,8 @@
 
 @font-face {
     font-family: 'poppinsmedium';
-    src: url('poppins-medium-webfont.woff2') format('woff2'),
-        url('poppins-medium-webfont.woff') format('woff');
+    src: url('fonts/poppins-medium-webfont.woff2') format('woff2'),
+        url('fonts/poppins-medium-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -91,25 +91,20 @@ h2 {
 
 p {
     font-family: "poppinsregular";
-    font-size: 1.8rem;
+    font-size: 2rem;
     letter-spacing: .6px;
 }
 
 li {
-    font-family: "poppinsregular";
-    font-size: 1.9rem;
-    font-weight: bold;
+    font-family: 'poppinsmedium';
+    font-size: 2rem;
     letter-spacing: .6px;
 }
 
 .info-container p {
-    font-family: 'poppinsmedium';
-    font-style: italic;
-}
-
-label {
     font-family: "poppinsregular";
-    font-size: 1.7rem;
+    font-style: italic;
+    font-size: 1.8rem;
 }
 
 legend {
@@ -134,6 +129,7 @@ legend {
     border-bottom: 1px solid rgba(165, 160, 160, 0.445);
     display: flex;
     justify-content: space-between;
+    padding-bottom: 5px;
     /* border-radius: 2px; */
 }
 
@@ -165,7 +161,10 @@ ol {
 }
 
 .list-item-div {
-    margin-top: 10px;
+    margin-top: 15px;
+    padding: 5px;
+    width: 90%;
+    box-shadow: 3px 2px 2px 2px rgba(165, 160, 160, 0.753);
 }
 
 .list-item {
@@ -178,7 +177,6 @@ ol {
 .info-container {
     padding: 5px;
     color: rgb(126, 127, 128);
-    box-shadow: 3px 2px 2px 2px rgba(165, 160, 160, 0.753);
     margin-top: 10px;
     width: 90%;
 }
@@ -204,7 +202,6 @@ ol {
 
 button {
     cursor: pointer;
-    font-size: 1.3rem;
 }
 
 .new-item-btn {
@@ -234,19 +231,24 @@ button {
     color: rgb(83, 79, 79);
 }
 
+
+/* .material-icons { 
+    font-size: 2rem;
+} */
+
 .edit-item-btn:hover {
-    background-color: rgb(205, 212, 210);
+    /* background-color: rgb(205, 212, 210); */
     color: rgb(31, 98, 187);
 }
 
 .remove-btn:hover {
-    background-color: rgb(205, 212, 210);
+    /* background-color: rgb(205, 212, 210); */
     color: rgb(138, 39, 39);
 }
 
 .new-item-btn:hover {
-    color: rgba(245, 247, 248, 0.945);
-    background-color: rgb(42, 141, 108);
+    color: rgba(31, 160, 138, 0.781);
+
 }
 
 .project-btn:hover {
@@ -261,11 +263,25 @@ button {
     color: rgb(126, 127, 128);
 }
 
-
 /* -----  Form Styling  ----- */
 
 form {
     max-width: 400px;
+    padding: 10px 20px;
+    background-color: rgba(188, 191, 194, 0.281);
+    margin: 10px;
+
+}
+
+form fieldset {
+    border: none;
+    padding: 10px;
+}
+
+form legend {
+    letter-spacing: .6px;
+    margin-bottom: 10px;
+    font-size: 2.2rem;
 }
 
 /* .project-form-container,
@@ -281,6 +297,19 @@ form label {
 
 form label {
     margin-bottom: 8px;
+    letter-spacing: .3px;
+    font-family: 'poppinsregular';
+    font-size: 1.8rem;
+}
+
+form button {
+    width: 100%;
+    padding: 6px;
+    background-color: rgba(11, 139, 118, 0.781);
+    color: rgb(234, 247, 247);
+    border: none;
+    margin-top: 10px;
+    border-radius: 2px;
 }
 
 
@@ -291,4 +320,6 @@ form select {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
+    border-radius: 4px;
+    border: none;
 }
