@@ -85,84 +85,10 @@ newItemForm.addEventListener('submit', (e) => {
         if (Number(projectId.textContent) === projectsArray[i].id) {
             // add new item to array
             itemsArray.push(newItem);
-            // remove current li's from dom
-            removeAllChildNodes(projectList);
-
-            // append li's for each list item in array
-            for (let j = 0; j < itemsArray.length; j++) {
-                let listItemDiv = document.createElement('div')
-                let li = document.createElement('li');
-                let buttonDiv = document.createElement('div');
-                let editBtn = document.createElement('button');
-                let editIcon = document.createElement('i');
-                let liRemoveBtn = document.createElement('button');
-                let removeIcon = document.createElement('i');
-
-
-                // edit item button 
-                li.textContent = `${itemsArray[j].name}`;
-                editIcon.classList.add('material-icons');
-                editIcon.textContent = 'edit';
-                editBtn.classList.add(`edit-item-btn`);
-                editBtn.appendChild(editIcon);
-
-                // remove item button
-                removeIcon.classList.add('material-icons');
-                removeIcon.textContent = 'delete';
-                liRemoveBtn.classList.add('remove-btn');
-                liRemoveBtn.appendChild(removeIcon);
-
-                // create div to contain item description and date 
-                let infoContainer = document.createElement('div');
-                let descriptionInfo = document.createElement('p');
-                let dateInfo = document.createElement('p')
-
-                infoContainer.classList.add('hidden', 'info-container');
-                descriptionInfo.textContent = `Note: ${itemsArray[j].description}`;
-                dateInfo.textContent = `Date: ${itemsArray[j].date}`;
-
-                buttonDiv.classList.add('li-btn-container');
-                buttonDiv.append(editBtn, liRemoveBtn);
-                infoContainer.append(descriptionInfo, dateInfo);
-
-                listItemDiv.append(li, infoContainer, buttonDiv);
-                listItemDiv.classList.add('list-item-div');
-                li.classList.add('list-item');
-                projectList.appendChild(listItemDiv);
-
-                // add something to differentiate priority*
-
-                // add event to expand item information* (maybe toggle a css class on click)
-
-                li.addEventListener('click', () => {
-                    infoContainer.classList.toggle('hidden');
-                })
-
-                editBtn.addEventListener('click', (e) => {
-                    // bring up edit form
-                    document.querySelector('.edit-form-container').classList.toggle('hidden');
-                    // fill in values of form
-                    editName.value = itemsArray[j].name;
-                    editDescription.value = itemsArray[j].description;
-                    editDate.value = itemsArray[j].date;
-                    editPriority.value = itemsArray[j].priority;
-                    editId.value = j;
-
-
-                    console.log(editId.value);
-                })
-
-
-                liRemoveBtn.addEventListener('click', () => {
-                    // remove list item from object
-                    itemsArray.splice(j, 1);
-
-                    // run populate list function with obj id*
-                    populateList(projectsArray[i].id);
-                })
-            }
         }
     }
+
+    populateList(Number(projectId.textContent));
     // hide form when done
     document.querySelector('.item-form-container').classList.toggle('hidden');
     itemName.value = '';
@@ -310,7 +236,8 @@ function populateList(id) {
             removeAllChildNodes(projectList);
 
             for (let j = 0; j < itemsArray.length; j++) {
-                let listItemDiv = document.createElement('div')
+                let listItemDiv = document.createElement('div');
+                let checkBox = document.createElement('input');
                 let li = document.createElement('li');
                 let buttonDiv = document.createElement('div');
                 let editBtn = document.createElement('button');
@@ -320,6 +247,7 @@ function populateList(id) {
 
 
 
+                checkBox.type = 'checkbox';
                 li.textContent = `${itemsArray[j].name}`;
 
                 // edit and remove button container
@@ -346,7 +274,7 @@ function populateList(id) {
                 buttonDiv.append(editBtn, liRemoveBtn);
                 infoContainer.append(descriptionInfo, dateInfo);
 
-                listItemDiv.append(li, infoContainer, buttonDiv);
+                listItemDiv.append(checkBox, li, infoContainer, buttonDiv);
                 listItemDiv.classList.add('list-item-div');
                 li.classList.add('list-item');
                 projectList.appendChild(listItemDiv);

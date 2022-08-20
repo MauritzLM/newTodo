@@ -171,7 +171,47 @@ ol {
     color: rgb(83, 79, 79);
     padding: 2px;
     cursor: pointer;
-    margin-bottom: 2px;
+    /* line-height: .8; */
+    width: 90%;
+
+}
+
+/* ----- Checkbox ----- */
+
+/* credit to Stephanie Eckles at https://moderncss.dev/pure-css-custom-checkbox-style/  */
+
+input[type=checkbox]:checked+.list-item {
+    text-decoration: line-through;
+}
+
+.list-item-div input[type="checkbox"] {
+    appearance: none;
+    font-size: inherit;
+    float: right;
+    transform: translateY(0.2em);
+    width: 1.9em;
+    height: 1.9em;
+    margin: 0;
+    background-color: white;
+    border: 1px solid rgba(54, 53, 53, 0.308);
+    display: grid;
+    place-content: center;
+
+}
+
+.list-item-div input[type="checkbox"]::before {
+    content: "";
+    width: 1.1em;
+    height: 1.1em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em rgb(138, 39, 39);
+    transform-origin: bottom left;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+.list-item-div input[type="checkbox"]:checked::before {
+    transform: scale(1);
 }
 
 .info-container {
@@ -179,8 +219,10 @@ ol {
     color: rgb(126, 127, 128);
     margin-top: 10px;
     width: 90%;
+    line-height: 1.2;
 }
 
+/*  hidden-toggle class  */
 .hidden {
     display: none;
     position: absolute;
@@ -192,8 +234,7 @@ ol {
 
 .li-btn-container {
     display: flex;
-    justify-content: flex-end;
-    padding-right: 10px;
+    justify-content: flex-start;
     margin-top: 10px;
 
 }
