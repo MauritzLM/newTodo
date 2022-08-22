@@ -227,7 +227,12 @@ input[type=checkbox]:checked+.list-item {
 /*  hidden-toggle class  */
 .hidden {
     display: none;
-    position: absolute;
+
+}
+
+/*  opacity toggle for when forms are visible  */
+.opacity-toggle {
+    opacity: .2;
 }
 
 .project-select p:first-child:hover {
@@ -308,10 +313,35 @@ button {
 
 /* -----  Form Styling  ----- */
 
+.project-form-container {
+    position: absolute;
+    left: 10%;
+    top: 5%;
+    max-width: 400px;
+    min-width: 300px;
+    /* opacity: 1; */
+}
+
+.item-form-container {
+    position: absolute;
+    left: 10%;
+    top: 35%;
+    max-width: 400px;
+    min-width: 300px;
+}
+
+.edit-form-container {
+    position: absolute;
+    left: 10%;
+    top: 35%;
+    max-width: 400px;
+    min-width: 300px;
+}
+
 form {
     max-width: 400px;
     padding: 10px 20px;
-    background-color: rgba(188, 191, 194, 0.281);
+    background-color: rgb(54, 53, 53);
     margin: 10px;
 
 }
@@ -322,9 +352,11 @@ form fieldset {
 }
 
 form legend {
+    font-family: 'poppinsregular';
     letter-spacing: .6px;
     margin-bottom: 10px;
     font-size: 2.2rem;
+    color: white;
 }
 
 /* .project-form-container,
@@ -343,6 +375,7 @@ form label {
     letter-spacing: .3px;
     font-family: 'poppinsregular';
     font-size: 1.8rem;
+    color: white;
 }
 
 form button {

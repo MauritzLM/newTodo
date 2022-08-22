@@ -30,14 +30,24 @@ const projectsArray = [];
 // bring up form for new project *
 newProjectBtn.addEventListener('click', (e) => {
     console.log(e);
+    // change opacity of background elements
+    document.querySelector('.container').classList.toggle('opacity-toggle');
     newProjectForm.focus();
+    // make form visible
     document.querySelector('.project-form-container').classList.toggle('hidden');
+
 });
 
 // bring up form for new item *
 newItemBtn.addEventListener('click', (e) => {
     console.log(e);
+    // change opacity of background elements
+    document.querySelector('.container').classList.toggle('opacity-toggle');
+
+    // make form visible
     document.querySelector('.item-form-container').classList.toggle('hidden');
+
+
 })
 
 
@@ -54,7 +64,9 @@ newProjectForm.addEventListener('submit', (e) => {
     let newProject = new Project(projectName);
     projectsArray.push(newProject);
 
+    // display project name
     currentList.textContent = projectName;
+
     projectId.textContent = newProject.id;
     // populate projects container
     appendProjects();
@@ -67,6 +79,8 @@ newProjectForm.addEventListener('submit', (e) => {
     // select the created project
     projectsContainer.lastChild.classList.add('selected');
 
+    document.querySelector('.container').classList.toggle('opacity-toggle');
+
     // hide form when done
     document.querySelector('.project-form-container').classList.toggle('hidden');
 
@@ -78,12 +92,14 @@ newItemForm.addEventListener('submit', (e) => {
 
     // create new item object
     let newItem = new Item(itemName.value, itemDescription.value, itemDate.value, itemPriority.value);
+
+    // add new item to array
     for (let i = 0; i < projectsArray.length; i++) {
 
         let itemsArray = projectsArray[i].items;
 
         if (Number(projectId.textContent) === projectsArray[i].id) {
-            // add new item to array
+
             itemsArray.push(newItem);
         }
     }
@@ -93,6 +109,10 @@ newItemForm.addEventListener('submit', (e) => {
     document.querySelector('.item-form-container').classList.toggle('hidden');
     itemName.value = '';
     itemDescription.value = '';
+
+
+    // toggle opacity of container
+    document.querySelector('.container').classList.toggle('opacity-toggle');
 })
 
 // edit item
@@ -119,6 +139,9 @@ editForm.addEventListener('submit', (e) => {
 
     // hide form again
     document.querySelector('.edit-form-container').classList.toggle('hidden');
+
+    // toggle opacity of container
+    document.querySelector('.container').classList.toggle('opacity-toggle');
 
     // populateList
     populateList(currentProjectId);
@@ -232,9 +255,11 @@ function populateList(id) {
     // loop over items array of object
     for (let i = 0; i < projectsArray.length; i++) {
         let itemsArray = projectsArray[i].items;
+
         if (id === projectsArray[i].id) {
             removeAllChildNodes(projectList);
 
+            // create list and card elements for each item in project
             for (let j = 0; j < itemsArray.length; j++) {
                 let listItemDiv = document.createElement('div');
                 let checkBox = document.createElement('input');
@@ -244,8 +269,6 @@ function populateList(id) {
                 let editIcon = document.createElement('i');
                 let liRemoveBtn = document.createElement('button');
                 let removeIcon = document.createElement('i');
-
-
 
                 checkBox.type = 'checkbox';
                 li.textContent = `${itemsArray[j].name}`;
@@ -287,6 +310,10 @@ function populateList(id) {
                 editBtn.addEventListener('click', () => {
                     // bring up edit form
                     document.querySelector('.edit-form-container').classList.toggle('hidden');
+
+                    // toggle opacity of container
+                    document.querySelector('.container').classList.toggle('opacity-toggle');
+
                     // fill in values of form
                     editName.value = itemsArray[j].name;
                     editDescription.value = itemsArray[j].description;
@@ -296,10 +323,10 @@ function populateList(id) {
                 })
 
                 liRemoveBtn.addEventListener('click', () => {
-                    // remove list item from object
+                    // remove list item from array
                     itemsArray.splice(j, 1);
 
-                    // run populate list function with obj id*
+                    // run populate list function with obj id
                     populateList(projectsArray[i].id);
                 })
             }
