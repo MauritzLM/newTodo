@@ -1,16 +1,21 @@
-const newProjectBtn = document.querySelector('.project-btn');
+
 const todayList = document.querySelector('.today');
 const currentList = document.querySelector('.current-list');
 const projectId = document.querySelector('.project-id');
-const newProjectForm = document.querySelector('.project-form');
+
 const projectInput = document.querySelector('.project-input');
 const projectsContainer = document.querySelector('.projects');
 const projectList = document.querySelector('.project-list');
 
+// new project form
+const newProjectBtn = document.querySelector('.project-btn');
+const newProjectForm = document.querySelector('.project-form');
+const closeProjectForm = document.querySelector('.close-project-btn');
+
+// new item form
 const newItemBtn = document.querySelector('.new-item-btn');
 const newItemForm = document.querySelector('.item-form');
-
-const editForm = document.querySelector('.edit-item-form');
+const closeNewItemForm = document.querySelector('.close-item-btn');
 
 // new item inputs 
 const itemName = document.querySelector('.item-name');
@@ -18,16 +23,19 @@ const itemDescription = document.querySelector('.item-description');
 const itemDate = document.querySelector('.item-date');
 const itemPriority = document.querySelector('#priority');
 
-// edit form
+// edit form variables
+const editForm = document.querySelector('.edit-item-form');
 const editName = document.querySelector('.edit-name');
 const editDescription = document.querySelector('.edit-description');
 const editDate = document.querySelector('.edit-date');
 const editPriority = document.querySelector('.edit-priority');
 const editId = document.querySelector('.edit-id');
+const closeEditForm = document.querySelector('.close-edit-btn');
 
+// array to store projects
 const projectsArray = [];
 
-// bring up form for new project *
+// bring up form for new project
 newProjectBtn.addEventListener('click', (e) => {
     console.log(e);
     // change opacity of background elements
@@ -38,7 +46,7 @@ newProjectBtn.addEventListener('click', (e) => {
 
 });
 
-// bring up form for new item *
+// bring up form for new item
 newItemBtn.addEventListener('click', (e) => {
     console.log(e);
     // change opacity of background elements
@@ -48,7 +56,28 @@ newItemBtn.addEventListener('click', (e) => {
     document.querySelector('.item-form-container').classList.toggle('hidden');
 
 
-})
+});
+
+// close new project form
+closeProjectForm.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.querySelector('.container').classList.toggle('opacity-toggle');
+    document.querySelector('.project-form-container').classList.toggle('hidden');
+});
+
+// close new item form
+closeNewItemForm.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.querySelector('.container').classList.toggle('opacity-toggle');
+    document.querySelector('.item-form-container').classList.toggle('hidden');
+});
+
+// close edit form 
+closeEditForm.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.querySelector('.container').classList.toggle('opacity-toggle');
+    document.querySelector('.edit-form-container').classList.toggle('hidden');
+});
 
 
 // submit new project
@@ -84,7 +113,7 @@ newProjectForm.addEventListener('submit', (e) => {
     // hide form when done
     document.querySelector('.project-form-container').classList.toggle('hidden');
 
-})
+});
 
 // submit new item
 newItemForm.addEventListener('submit', (e) => {
@@ -107,13 +136,14 @@ newItemForm.addEventListener('submit', (e) => {
     populateList(Number(projectId.textContent));
     // hide form when done
     document.querySelector('.item-form-container').classList.toggle('hidden');
+
     itemName.value = '';
     itemDescription.value = '';
 
 
     // toggle opacity of container
     document.querySelector('.container').classList.toggle('opacity-toggle');
-})
+});
 
 // edit item
 
@@ -145,7 +175,7 @@ editForm.addEventListener('submit', (e) => {
 
     // populateList
     populateList(currentProjectId);
-})
+});
 
 
 // constructor function for list
@@ -209,7 +239,7 @@ function appendProjects() {
                 appendProjects();
                 removeAllChildNodes(projectList);
 
-            })
+            });
         }
 
         // id has to be last child for populate list function
@@ -246,9 +276,9 @@ function selectProjects() {
             // remove li's and append the Lists' items
             populateList(Number(div.lastChild.textContent));
 
-        })
-    })
-}
+        });
+    });
+};
 
 // function to populate selected list
 function populateList(id) {
@@ -264,6 +294,8 @@ function populateList(id) {
                 let listItemDiv = document.createElement('div');
                 let checkBox = document.createElement('input');
                 let li = document.createElement('li');
+
+                // div to contain edit and remove buttons
                 let buttonDiv = document.createElement('div');
                 let editBtn = document.createElement('button');
                 let editIcon = document.createElement('i');
@@ -302,6 +334,9 @@ function populateList(id) {
                 li.classList.add('list-item');
                 projectList.appendChild(listItemDiv);
 
+                // check priority and style accordingly
+                stylePriority(itemsArray[j].priority, listItemDiv);
+
                 // add event to toggle info
                 li.addEventListener('click', () => {
                     infoContainer.classList.toggle('hidden');
@@ -328,18 +363,29 @@ function populateList(id) {
 
                     // run populate list function with obj id
                     populateList(projectsArray[i].id);
-                })
+                });
             }
         }
     }
-}
+};
 
 // get random int between two numbers
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
-}
+};
+
+function stylePriority(itemPriority, element) {
+    if (itemPriority === 'high') {
+        element.classList.add('high');
+    }
+    else if (itemPriority === 'medium') {
+        element.classList.add('medium');
+    } else {
+        element.classList.add('low');
+    }
+};
 
 
 appendProjects();

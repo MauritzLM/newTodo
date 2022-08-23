@@ -47,7 +47,9 @@
 
     <!--  Add new project form  -->
     <div class="project-form-container hidden">
+
         <form action="" class="project-form">
+            <button class="close-project-btn form-close">X</button>
             <fieldset>
                 <legend>New project</legend>
 
@@ -61,12 +63,14 @@
 
     <!--  Add new item form  -->
     <div class="item-form-container hidden">
+
         <form action="" class="item-form">
+            <button type="button" class="close-item-btn form-close">X</button>
             <fieldset>
                 <legend>New item</legend>
 
                 <label for="name">name</label>
-                <input type="text" name="name" class="item-name" required>
+                <input type="text" name="name" class="item-name">
 
 
 
@@ -75,11 +79,11 @@
                 <textarea name="description" id="description" class="item-description" cols="20" rows="2"></textarea>
 
                 <label for="date">complete by</label>
-                <input type="date" name="date" class="item-date" required>
+                <input type="date" name="date" class="item-date">
 
 
                 <label for="priority">priority</label>
-                <select name="priority-select" id="priority" required>
+                <select name="priority-select" id="priority">
                     <option value="">--choose priority--</option>
                     <option value="high">High</option>
                     <option value="medium">Medium</option>
@@ -93,7 +97,9 @@
 
     <!--  Edit item form  -->
     <div class="edit-form-container hidden">
+
         <form action="" class="edit-item-form">
+            <button class="close-edit-btn form-close">X</button>
             <fieldset>
                 <legend>Edit item</legend>
 

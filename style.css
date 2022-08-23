@@ -111,19 +111,6 @@ legend {
     font-size: 2rem;
 }
 
-/* .high {
-
-}
-
-.medium {
-
-}
-
-.low {
-
-} */
-
-
 .project-select {
     font-weight: bold;
     border-bottom: 1px solid rgba(165, 160, 160, 0.445);
@@ -156,8 +143,9 @@ legend {
 
 /* ----- List ----- */
 
-ol {
+.project-list {
     margin-top: 0;
+    list-style: none;
 }
 
 .list-item-div {
@@ -176,6 +164,19 @@ ol {
     /* line-height: .8; */
     width: 90%;
 
+}
+
+/*  classes to display priority  */
+.high {
+    box-shadow: 3px 2px 2px 2px rgba(167, 34, 34, 0.753);
+}
+
+.medium {
+    box-shadow: 3px 2px 2px 2px rgba(230, 172, 106, 0.753);
+}
+
+.low {
+    box-shadow: 3px 2px 2px 2px rgba(88, 160, 109, 0.753);
 }
 
 /* ----- Checkbox ----- */
@@ -207,7 +208,7 @@ input[type=checkbox]:checked+.list-item {
     height: 1.1em;
     transform: scale(0);
     transition: 120ms transform ease-in-out;
-    box-shadow: inset 1em 1em rgb(138, 39, 39);
+    box-shadow: inset 1em 1em rgba(11, 139, 118, 0.781);
     transform-origin: bottom left;
     clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
 }
@@ -317,9 +318,18 @@ button {
     position: absolute;
     left: 10%;
     top: 5%;
-    max-width: 400px;
+    max-width: 600px;
     min-width: 300px;
     /* opacity: 1; */
+}
+
+/*  close button form project form  */
+.form-close {
+    float: right;
+    width: 25px;
+    display: inline;
+    margin: 0;
+    font-size: 1rem;
 }
 
 .item-form-container {
