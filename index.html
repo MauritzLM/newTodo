@@ -48,88 +48,87 @@
     <!--  Add new project form  -->
     <div class="project-form-container hidden">
 
+        <div class="form-heading">
+            <h3>New</h3>
+            <button type="button" class="close-project-btn form-close">X</button>
+        </div>
         <form action="" class="project-form">
-            <button class="close-project-btn form-close">X</button>
-            <fieldset>
-                <legend>New project</legend>
 
-                <!-- <label for="name">name</label> -->
-                <input type="text" name="name" class="project-input" placeholder="Project name" required>
+            <!-- <label for="name">name</label> -->
+            <input type="text" name="name" class="project-input" placeholder="Project name" required>
 
-                <button type="submit">Add project</button>
-            </fieldset>
+            <button type="submit">Add project</button>
+
         </form>
     </div>
 
     <!--  Add new item form  -->
     <div class="item-form-container hidden">
 
-        <form action="" class="item-form">
+        <div class="form-heading">
+            <h3>New Item</h3>
             <button type="button" class="close-item-btn form-close">X</button>
-            <fieldset>
-                <legend>New item</legend>
+        </div>
+        <form action="" class="item-form">
 
-                <label for="name">name</label>
-                <input type="text" name="name" class="item-name">
+            <label for="name">name</label>
+            <input type="text" name="name" class="item-name">
 
+            <label for="description">description</label>
 
+            <textarea name="description" id="description" class="item-description" cols="20" rows="2"></textarea>
 
-                <label for="description">description</label>
-
-                <textarea name="description" id="description" class="item-description" cols="20" rows="2"></textarea>
-
-                <label for="date">complete by</label>
-                <input type="date" name="date" class="item-date">
+            <label for="date">complete by</label>
+            <input type="date" name="date" class="item-date">
 
 
-                <label for="priority">priority</label>
-                <select name="priority-select" id="priority">
-                    <option value="">--choose priority--</option>
-                    <option value="high">High</option>
-                    <option value="medium">Medium</option>
-                    <option value="low">Low</option>
-                </select>
+            <label for="priority">priority</label>
+            <select name="priority-select" id="priority">
+                <option value="">--choose priority--</option>
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+            </select>
 
-                <button type="submit">add item</button>
-            </fieldset>
+            <button type="submit">add item</button>
+
         </form>
     </div>
 
     <!--  Edit item form  -->
     <div class="edit-form-container hidden">
 
+        <div class="form-heading">
+            <h3>Edit item</h3>
+            <button type="button" class="close-edit-btn form-close">X</button>
+        </div>
         <form action="" class="edit-item-form">
-            <button class="close-edit-btn form-close">X</button>
-            <fieldset>
-                <legend>Edit item</legend>
 
-                <label for="edit-name">name</label>
-                <input type="text" name="edit-name" class="edit-name">
+            <label for="edit-name">name</label>
+            <input type="text" name="edit-name" class="edit-name">
 
+            <label for="edit-description">description</label>
 
-
-                <label for="edit-description">description</label>
-
-                <textarea name="edit-description" id="edit-description" class="edit-description" cols="20"
-                    rows="2"></textarea>
+            <textarea name="edit-description" id="edit-description" class="edit-description" cols="20"
+                rows="2"></textarea>
 
 
-                <label for="edit-date">date</label>
-                <input type="date" name="edit-date" class="edit-date">
+            <label for="edit-date">date</label>
+            <input type="date" name="edit-date" class="edit-date">
 
 
-                <label for="priority">priority</label>
-                <select name="edit-priority" class="edit-priority">
-                    <option value="">--choose priority--</option>
-                    <option value="high">High</option>
-                    <option value="medium">Medium</option>
-                    <option value="low">Low</option>
-                </select>
+            <label for="priority">priority</label>
+            <select name="edit-priority" class="edit-priority">
+                <option value="">--choose priority--</option>
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+            </select>
 
-                <input type="hidden" name="id" class="edit-id" value="">
+            <input type="hidden" name="id" class="edit-id" value="">
 
-                <button type="submit">update item</button>
-            </fieldset>
+            <button type="submit">update item</button>
+
         </form>
     </div>
 

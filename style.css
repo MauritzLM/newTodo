@@ -99,6 +99,7 @@ li {
     font-family: 'poppinsmedium';
     font-size: 2rem;
     letter-spacing: .6px;
+    line-height: 1.3;
 }
 
 .info-container p {
@@ -125,18 +126,6 @@ legend {
     color: rgb(126, 127, 128);
 }
 
-.project-form {
-    margin-top: 30px;
-}
-
-.item-form {
-    margin-top: 30px;
-}
-
-.edit-item-form {
-    margin-top: 30px;
-}
-
 .edit-id {
     width: 1em;
 }
@@ -152,7 +141,8 @@ legend {
     margin-top: 15px;
     padding: 5px;
     width: 90%;
-    box-shadow: 3px 2px 2px 2px rgba(165, 160, 160, 0.753);
+    /* box-shadow: 3px 2px 2px 2px rgba(165, 160, 160, 0.753); */
+    border-bottom: 1px solid rgba(165, 160, 160, 0.445);
     overflow-wrap: break-word;
     max-width: 900px;
 }
@@ -168,15 +158,15 @@ legend {
 
 /*  classes to display priority  */
 .high {
-    box-shadow: 3px 2px 2px 2px rgba(167, 34, 34, 0.753);
+    border-bottom: 1px solid rgba(202, 90, 90, 0.445);
 }
 
 .medium {
-    box-shadow: 3px 2px 2px 2px rgba(230, 172, 106, 0.753);
+    border-bottom: 1px solid rgba(230, 172, 106, 0.753);
 }
 
 .low {
-    box-shadow: 3px 2px 2px 2px rgba(88, 160, 109, 0.753);
+    border-bottom: 1px solid rgba(88, 160, 109, 0.753);
 }
 
 /* ----- Checkbox ----- */
@@ -190,13 +180,14 @@ input[type=checkbox]:checked+.list-item {
 .list-item-div input[type="checkbox"] {
     appearance: none;
     font-size: inherit;
-    float: right;
+    float: left;
     transform: translateY(0.2em);
     width: 1.9em;
     height: 1.9em;
-    margin: 0;
+    margin-right: 10px;
     background-color: white;
     border: 1px solid rgba(54, 53, 53, 0.308);
+    border-radius: 50%;
     display: grid;
     place-content: center;
 
@@ -243,9 +234,9 @@ input[type=checkbox]:checked+.list-item {
 .li-btn-container {
     display: flex;
     justify-content: flex-end;
-    margin-top: 10px;
 
 }
+
 
 /* -----  Buttons ----- */
 
@@ -314,22 +305,23 @@ button {
 
 /* -----  Form Styling  ----- */
 
+form {
+    max-width: 400px;
+    padding: 15px 20px;
+    margin: 5px;
+
+}
+
 .project-form-container {
     position: absolute;
     left: 10%;
-    top: 5%;
+    top: 8%;
     max-width: 600px;
     min-width: 300px;
+    background-color: rgba(54, 53, 53, 0.945);
+    border-radius: 10px;
+    padding: 10px;
     /* opacity: 1; */
-}
-
-/*  close button form project form  */
-.form-close {
-    float: right;
-    width: 25px;
-    display: inline;
-    margin: 0;
-    font-size: 1rem;
 }
 
 .item-form-container {
@@ -338,6 +330,9 @@ button {
     top: 35%;
     max-width: 400px;
     min-width: 300px;
+    background-color: rgba(54, 53, 53, 0.945);
+    border-radius: 10px;
+    padding: 10px;
 }
 
 .edit-form-container {
@@ -346,28 +341,56 @@ button {
     top: 35%;
     max-width: 400px;
     min-width: 300px;
+    background-color: rgba(54, 53, 53, 0.945);
+    border-radius: 10px;
+    padding: 20px;
 }
 
-form {
-    max-width: 400px;
-    padding: 10px 20px;
-    background-color: rgb(54, 53, 53);
-    margin: 10px;
-
+.form-heading {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
 }
 
-form fieldset {
+.item-form-container h3,
+.edit-form-container h3,
+.project-form-container h3 {
+    font-size: 2.1rem;
+    color: white;
+    letter-spacing: .6px;
+    width: 70%;
+    margin: 0;
+    padding-left: 10px;
+}
+
+/*  close button  */
+.form-close {
+    background-color: rgba(54, 53, 53, 0.945);
+    color: rgb(234, 247, 247);
+    display: inline;
+    margin: 0;
+    padding: 4px;
+    font-size: 1rem;
+    border-radius: 2px;
     border: none;
-    padding: 10px;
+    float: right;
+
+}
+
+/* form fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
 }
 
 form legend {
     font-family: 'poppinsregular';
     letter-spacing: .6px;
-    margin-bottom: 10px;
+    margin-bottom: 14px;
     font-size: 2.2rem;
     color: white;
-}
+    text-decoration: underline;
+} */
 
 /* .project-form-container,
 .item-form-container,
@@ -381,7 +404,7 @@ form label {
 }
 
 form label {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     letter-spacing: .3px;
     font-family: 'poppinsregular';
     font-size: 1.8rem;
@@ -398,6 +421,9 @@ form button {
     border-radius: 2px;
 }
 
+form button:hover {
+    background-color: rgba(31, 160, 138, 0.781);
+}
 
 form input[type="text"],
 form input[type="date"],

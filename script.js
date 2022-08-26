@@ -32,8 +32,25 @@ const editPriority = document.querySelector('.edit-priority');
 const editId = document.querySelector('.edit-id');
 const closeEditForm = document.querySelector('.close-edit-btn');
 
+
 // array to store projects
-const projectsArray = [];
+let projectsArray;
+// get local storage id it exists
+(function getStorage() {
+    if (localStorage.getItem('projects')) {
+        const projects = JSON.parse(localStorage.getItem('projects'))
+        projectsArray = projects;
+    }
+
+    else {
+        projectsArray = [];
+
+        // default today list
+        const todayObj = new Project('today');
+        projectsArray.push(todayObj);
+    }
+})();
+
 
 // bring up form for new project
 newProjectBtn.addEventListener('click', (e) => {
@@ -113,6 +130,8 @@ newProjectForm.addEventListener('submit', (e) => {
     // hide form when done
     document.querySelector('.project-form-container').classList.toggle('hidden');
 
+    // update local storage
+    localStorage.setItem('projects', JSON.stringify(projectsArray));
 });
 
 // submit new item
@@ -143,6 +162,9 @@ newItemForm.addEventListener('submit', (e) => {
 
     // toggle opacity of container
     document.querySelector('.container').classList.toggle('opacity-toggle');
+
+    // update local storage
+    localStorage.setItem('projects', JSON.stringify(projectsArray));
 });
 
 // edit item
@@ -173,6 +195,9 @@ editForm.addEventListener('submit', (e) => {
     // toggle opacity of container
     document.querySelector('.container').classList.toggle('opacity-toggle');
 
+    // update local storage
+    localStorage.setItem('projects', JSON.stringify(projectsArray));
+
     // populateList
     populateList(currentProjectId);
 });
@@ -194,9 +219,7 @@ function Item(name, description, date, priority) {
     this.priority = priority;
 }
 
-// default today list
-const todayObj = new Project('today');
-projectsArray.push(todayObj);
+
 
 // function to populate projects container with list of projects
 function appendProjects() {
@@ -335,7 +358,7 @@ function populateList(id) {
                 projectList.appendChild(listItemDiv);
 
                 // check priority and style accordingly
-                stylePriority(itemsArray[j].priority, listItemDiv);
+                // stylePriority(itemsArray[j].priority, listItemDiv);
 
                 // add event to toggle info
                 li.addEventListener('click', () => {
@@ -376,6 +399,7 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
 };
 
+// function to add priority styling to item cards
 function stylePriority(itemPriority, element) {
     if (itemPriority === 'high') {
         element.classList.add('high');
