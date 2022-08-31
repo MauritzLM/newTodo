@@ -59,7 +59,7 @@ newProjectBtn.addEventListener('click', (e) => {
     document.querySelector('.container').classList.toggle('opacity-toggle');
     newProjectForm.focus();
     // make form visible
-    document.querySelector('.project-form-container').classList.toggle('hidden');
+    document.querySelector('.project-form-container').classList.toggle('slide-project-form');
 
 });
 
@@ -70,7 +70,7 @@ newItemBtn.addEventListener('click', (e) => {
     document.querySelector('.container').classList.toggle('opacity-toggle');
 
     // make form visible
-    document.querySelector('.item-form-container').classList.toggle('hidden');
+    document.querySelector('.item-form-container').classList.toggle('slide-item-form');
 
 
 });
@@ -79,21 +79,21 @@ newItemBtn.addEventListener('click', (e) => {
 closeProjectForm.addEventListener('click', (e) => {
     e.preventDefault();
     document.querySelector('.container').classList.toggle('opacity-toggle');
-    document.querySelector('.project-form-container').classList.toggle('hidden');
+    document.querySelector('.project-form-container').classList.toggle('slide-project-form');
 });
 
 // close new item form
 closeNewItemForm.addEventListener('click', (e) => {
     e.preventDefault();
     document.querySelector('.container').classList.toggle('opacity-toggle');
-    document.querySelector('.item-form-container').classList.toggle('hidden');
+    document.querySelector('.item-form-container').classList.toggle('slide-item-form');
 });
 
 // close edit form 
 closeEditForm.addEventListener('click', (e) => {
     e.preventDefault();
     document.querySelector('.container').classList.toggle('opacity-toggle');
-    document.querySelector('.edit-form-container').classList.toggle('hidden');
+    document.querySelector('.edit-form-container').classList.toggle('slide-edit-form');
 });
 
 
@@ -128,7 +128,7 @@ newProjectForm.addEventListener('submit', (e) => {
     document.querySelector('.container').classList.toggle('opacity-toggle');
 
     // hide form when done
-    document.querySelector('.project-form-container').classList.toggle('hidden');
+    document.querySelector('.project-form-container').classList.toggle('slide-project-form');
 
     // update local storage
     localStorage.setItem('projects', JSON.stringify(projectsArray));
@@ -154,7 +154,7 @@ newItemForm.addEventListener('submit', (e) => {
 
     populateList(Number(projectId.textContent));
     // hide form when done
-    document.querySelector('.item-form-container').classList.toggle('hidden');
+    document.querySelector('.item-form-container').classList.toggle('slide-item-form');
 
     itemName.value = '';
     itemDescription.value = '';
@@ -190,7 +190,7 @@ editForm.addEventListener('submit', (e) => {
     editDescription.value = '';
 
     // hide form again
-    document.querySelector('.edit-form-container').classList.toggle('hidden');
+    document.querySelector('.edit-form-container').classList.toggle('slide-edit-form');
 
     // toggle opacity of container
     document.querySelector('.container').classList.toggle('opacity-toggle');
@@ -257,6 +257,8 @@ function appendProjects() {
             // add click event to btn to remove project
             removeBtn.addEventListener('click', () => {
                 projectsArray.splice(i, 1);
+                // update local storage
+                localStorage.setItem('projects', JSON.stringify(projectsArray));
 
                 currentList.textContent = 'select a project or create a new one';
                 appendProjects();
@@ -367,7 +369,7 @@ function populateList(id) {
 
                 editBtn.addEventListener('click', () => {
                     // bring up edit form
-                    document.querySelector('.edit-form-container').classList.toggle('hidden');
+                    document.querySelector('.edit-form-container').classList.toggle('slide-edit-form');
 
                     // toggle opacity of container
                     document.querySelector('.container').classList.toggle('opacity-toggle');
@@ -383,6 +385,9 @@ function populateList(id) {
                 liRemoveBtn.addEventListener('click', () => {
                     // remove list item from array
                     itemsArray.splice(j, 1);
+
+                    // update local storage
+                    localStorage.setItem('projects', JSON.stringify(projectsArray));
 
                     // run populate list function with obj id
                     populateList(projectsArray[i].id);

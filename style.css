@@ -39,7 +39,7 @@ html {
 body {
     font-family: 'latoregular', Times, serif;
     /* width: 90%; */
-    background-color: rgba(215, 220, 224, 0.459);
+    background-color: white;
     margin: 0;
 
 }
@@ -72,10 +72,12 @@ body {
 
 h1 {
     font-size: 5rem;
-    background-color: rgb(54, 53, 53);
+    background-color: #324851;
     color: rgb(239, 245, 245);
     letter-spacing: 1px;
     margin: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
     padding-left: 10px;
 }
 
@@ -106,10 +108,6 @@ li {
     font-family: "poppinsregular";
     font-style: italic;
     font-size: 1.8rem;
-}
-
-legend {
-    font-size: 2rem;
 }
 
 .project-select {
@@ -199,7 +197,7 @@ input[type=checkbox]:checked+.list-item {
     height: 1.1em;
     transform: scale(0);
     transition: 120ms transform ease-in-out;
-    box-shadow: inset 1em 1em rgba(11, 139, 118, 0.781);
+    box-shadow: inset 1em 1em #324851;
     transform-origin: bottom left;
     clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
 }
@@ -246,29 +244,27 @@ button {
 
 .new-item-btn {
     border-radius: 10%;
-    color: rgb(42, 141, 108);
+    color: #7da3a1;
     border: none;
+    background-color: white;
 
 }
 
 .project-btn {
     border: none;
     width: 100%;
-    background-color: rgba(11, 139, 118, 0.781);
+    background-color: #7da3a1;
     color: rgb(234, 247, 247);
     padding: 6px;
     margin-top: 10px;
 }
 
-.edit-item-btn {
-    border: none;
-    color: rgb(83, 79, 79);
-
-}
-
+.edit-item-btn,
 .remove-btn {
     border: none;
-    color: rgb(83, 79, 79);
+    color: #324851;
+    background-color: white;
+
 }
 
 
@@ -278,21 +274,21 @@ button {
 
 .edit-item-btn:hover {
     /* background-color: rgb(205, 212, 210); */
-    color: rgb(31, 98, 187);
+    color: #4cb5f5;
 }
 
 .remove-btn:hover {
     /* background-color: rgb(205, 212, 210); */
-    color: rgb(138, 39, 39);
+    color: #fb6542;
 }
 
 .new-item-btn:hover {
-    color: rgba(31, 160, 138, 0.781);
+    color: #324851;
 
 }
 
 .project-btn:hover {
-    background-color: rgba(31, 160, 138, 0.781);
+    background-color: #324851;
 }
 
 .project-select p:hover {
@@ -314,37 +310,46 @@ form {
 
 .project-form-container {
     position: absolute;
-    left: 0;
+    left: -100px;
     top: 10%;
-    max-width: 600px;
-    min-width: 300px;
-    background-color: rgba(54, 53, 53, 0.945);
-    border-radius: 2px;
+    /* max-width: 600px;
+    min-width: 300px; */
+    width: 0;
+    background-color: white;
+    border: 1px solid #324851;
+    border-radius: 1px;
     padding: 10px;
     transition: 0.6s all;
+    overflow: hidden;
     /* opacity: 1; */
 }
 
 .item-form-container {
     position: absolute;
-    right: 0;
+    right: -100px;
     top: 48%;
-    max-width: 400px;
-    min-width: 300px;
-    background-color: rgba(54, 53, 53, 0.945);
-    border-radius: 2px;
+    /* max-width: 400px;
+    min-width: 300px; */
+    width: 0;
+    background-color: white;
+    border: 1px solid #324851;
+    border-radius: 1px;
     padding: 10px;
+    transition: all 0.9s;
 }
 
 .edit-form-container {
     position: absolute;
-    left: 0;
+    left: -150px;
     top: 48%;
-    max-width: 400px;
-    min-width: 300px;
-    background-color: rgba(54, 53, 53, 0.945);
-    border-radius: 2px;
-    padding: 20px;
+    /* max-width: 400px;
+    min-width: 300px; */
+    width: 0;
+    background-color: white;
+    border: 1px solid #324851;
+    border-radius: 1px;
+    padding: 10px;
+    transition: all .7s;
 }
 
 .form-heading {
@@ -357,7 +362,7 @@ form {
 .edit-form-container h3,
 .project-form-container h3 {
     font-size: 2.1rem;
-    color: white;
+    color: black;
     letter-spacing: .6px;
     width: 70%;
     margin: 0;
@@ -366,7 +371,7 @@ form {
 
 /*  close button  */
 .form-close {
-    background-color: rgba(54, 53, 53, 0.945);
+    background-color: #7da3a1;
     color: rgb(234, 247, 247);
     display: inline;
     margin: 0;
@@ -409,13 +414,13 @@ form label {
     letter-spacing: .3px;
     font-family: 'poppinsregular';
     font-size: 1.8rem;
-    color: white;
+    color: black;
 }
 
 form button {
     width: 100%;
     padding: 6px;
-    background-color: rgba(11, 139, 118, 0.781);
+    background-color: #7da3a1;
     color: rgb(234, 247, 247);
     border: none;
     margin-top: 10px;
@@ -423,7 +428,7 @@ form button {
 }
 
 form button:hover {
-    background-color: rgba(31, 160, 138, 0.781);
+    background-color: #324851;
 }
 
 form input[type="text"],
@@ -433,8 +438,25 @@ form select {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-    border-radius: 4px;
-    border: none;
+    border-radius: 2px;
+    border: 1px solid #324851;
+}
+
+
+/*  class to slide forms   */
+.slide-project-form {
+    width: 300px;
+    left: 0;
+}
+
+.slide-item-form {
+    width: 300px;
+    right: 0;
+}
+
+.slide-edit-form {
+    width: 300px;
+    left: 0;
 }
 
 /* ----- Media Queries ----- */
