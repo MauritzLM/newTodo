@@ -310,11 +310,8 @@ form {
 
 .project-form-container {
     position: absolute;
-    left: -100px;
+    left: -300px;
     top: 10%;
-    /* max-width: 600px;
-    min-width: 300px; */
-    width: 0;
     background-color: white;
     border: 1px solid #324851;
     border-radius: 1px;
@@ -326,11 +323,8 @@ form {
 
 .item-form-container {
     position: absolute;
-    right: -100px;
+    right: -300px;
     top: 48%;
-    /* max-width: 400px;
-    min-width: 300px; */
-    width: 0;
     background-color: white;
     border: 1px solid #324851;
     border-radius: 1px;
@@ -340,11 +334,8 @@ form {
 
 .edit-form-container {
     position: absolute;
-    left: -150px;
+    left: -300px;
     top: 48%;
-    /* max-width: 400px;
-    min-width: 300px; */
-    width: 0;
     background-color: white;
     border: 1px solid #324851;
     border-radius: 1px;
@@ -382,27 +373,6 @@ form {
     float: right;
 
 }
-
-/* form fieldset {
-    border: none;
-    padding: 0;
-    margin: 0;
-}
-
-form legend {
-    font-family: 'poppinsregular';
-    letter-spacing: .6px;
-    margin-bottom: 14px;
-    font-size: 2.2rem;
-    color: white;
-    text-decoration: underline;
-} */
-
-/* .project-form-container,
-.item-form-container,
-.edit-form-container {
-    display: none;
-} */
 
 form button,
 form label {
@@ -445,17 +415,14 @@ form select {
 
 /*  class to slide forms   */
 .slide-project-form {
-    width: 300px;
     left: 0;
 }
 
 .slide-item-form {
-    width: 300px;
     right: 0;
 }
 
 .slide-edit-form {
-    width: 300px;
     left: 0;
 }
 
